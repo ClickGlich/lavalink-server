@@ -1,9 +1,10 @@
 server:
   port: 2333
+  address: 0.0.0.0
 
 lavalink:
   server:
-    password: "youshallnotpass"
+    password: "1234"
     sources:
       youtube: true
       bandcamp: true
@@ -14,14 +15,32 @@ lavalink:
       local: false
     filters:
       volume: true
+      equalizer: true
       karaoke: true
       timescale: true
       tremolo: true
       vibrato: true
-      rotation: true
       distortion: true
-      channelMix: true
-      lowPass: true
+      rotation: true
+      lowpass: true
+    bufferDurationMs: 400
+    frameBufferDurationMs: 5000
+    trackStuckThresholdMs: 10000
+    youtubePlaylistLoadLimit: 6
+    playerUpdateInterval: 5
+    resamplingQuality: LOW
+    opusEncodingQuality: 10
+    seekGhosting: true
+    gc-warnings: true
+
+metrics:
+  prometheus:
+    enabled: false
+    endpoint: /metrics
+
+sentry:
+  dsn: ""
+  environment: "production"
 
 logging:
   file:
@@ -29,3 +48,4 @@ logging:
   level:
     root: INFO
     lavalink: INFO
+
